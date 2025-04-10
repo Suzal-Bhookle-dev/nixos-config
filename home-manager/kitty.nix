@@ -1,0 +1,35 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  programs.kitty = {
+    enable = true;
+    settings = {
+      scrollback_lines = 10000;
+      confirm_os_window_close = 0;
+      foreground = "#a0a8cd";
+      background = "#11121d";
+      color0 = "#06080a";
+      color1 = "#ee6d85";
+      color2 = "#95c561";
+      color3 = "#d7a65f";
+      color4 = "#7199ee";
+      color5 = "#a485dd";
+      color6 = "#38a89d";
+      color7 = "#a0a8cd";
+      color8 = "#212234";
+      color9 = "#ee6d85";
+      color10 = "#95c561";
+      color11 = "#d7a65f";
+      color12 = "#7199ee";
+      color13 = "#a485dd";
+      color14 = "#38a89d";
+      color15 = "#a0a8cd";
+      selection_foreground = "#11121d";
+      cursor = "#a0a8cd";
+      selection_background = "#a0a8cd";
+    };
+  };
+}

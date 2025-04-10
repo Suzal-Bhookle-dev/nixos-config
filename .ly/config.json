@@ -1,0 +1,9 @@
+{
+	"sessions": [
+		{
+			"name": "Sway",
+			"command": "sway",
+			"desktop": "wayland"
+		}
+	]
+}
