@@ -44,8 +44,8 @@
     vscode-langservers-extracted
 
     # Prgamming languages
-    nodejs_23
-    python314
+    # nodejs_23
+    # python314
   ];
 
   programs.neovim = {

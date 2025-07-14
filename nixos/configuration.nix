@@ -14,12 +14,24 @@ in {
     ./nh.nix
   ];
 
+
   # Experimental features
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader = {
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+    };
+
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -45,11 +57,22 @@ in {
       };
     };
 
-    # Enable sddm
-    displayManager = {
-      ly = {
-        enable = true;
-      };
+    # # Enable sddm
+    # displayManager = {
+    #   sddm = {
+    #     enable = true;
+    #   };
+    # };
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+          user = "greeter";
+        };
+      }
+      ;
     };
   };
 
@@ -120,6 +143,7 @@ in {
     yazi
     xdg-user-dirs
     eza
+    brightnessctl
 
     # Other
     base16-schemes
@@ -132,7 +156,10 @@ in {
     # xclip
   ];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    XDG_SESSION_TYPE = "wayland";
+    NIXOS_OZONE_WL = "1";
+  };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

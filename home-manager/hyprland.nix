@@ -3,11 +3,19 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./subModule/waybar.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
     settings = {
+      monitor = ",1920x1080,auto,1";
+
+      exec-once = "waybar";
+
       general = {
         gaps_in = "3";
         gaps_out = "5";
@@ -55,15 +63,19 @@
       "$mod" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "kitty -e yazi";
-      "$menu" = "dmenu-wl_run";
+      "$menu" = "rofi -show drun";
 
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod, Q, killactive"
         "$mod, F, exec, $fileManager"
-        "$mod, SPACE, exec, $menu"
         "$mod, B, exec, firefox"
         "$mod, V, togglefloating"
+
+        # Rofi
+        "$mod, SPACE, exec, $menu"
+        "$mod SHIFT, X, exec, $menu -show power-menu -modi power-menu:rofi-power-menu"
+        "$mod, PRINT, exec, rofi-screenshot"
 
         # Move focus with mod + vim motion
         "$mod, h, movefocus, l"

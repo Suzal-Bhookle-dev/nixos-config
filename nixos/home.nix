@@ -12,7 +12,7 @@
     ../home-manager/home-stylix.nix
     ../home-manager/fish.nix
     # ../home-manager/eww.nix
-    # ../home-manager/hyprland.nix
+    ../home-manager/hyprland.nix
     ../home-manager/rofi.nix
     ../home-manager/dunst.nix
     ../home-manager/sway.nix

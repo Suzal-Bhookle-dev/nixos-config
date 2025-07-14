@@ -10,17 +10,17 @@
         position = "bottom";
         spacing = "4";
         height = 5;
-        modules-left = ["memory" "custom/separator" "cpu" "custom/separator" "sway/window"];
-        modules-center = ["sway/workspaces"];
-        modules-right = ["pulseaudio" "custom/separator" "network" "custom/separator" "battery" "custom/separator" "clock"];
+        modules-left = ["memory" "custom/separator" "cpu" "custom/separator" "hyprland/window"];
+        modules-center = ["hyprland/workspaces"];
+        modules-right = ["pulseaudio" "custom/separator" "network" "custom/separator" "battery" "custom/separator" "clock" "custom/separator" "power-profiles-daemon"];
 
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = false;
           all-outputs = true;
           on-click = "activate";
         };
 
-        "sway/window" = {
+        "hyprland/window" = {
           format = "{title}";
           max-length = 50;
         };
