@@ -3,9 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./subModule/waybar.nix
-  ];
+  imports = [./subModule/waybar.nix];
 
   wayland.windowManager.hyprland = {
     enable = true;

@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: let
   username = "suzal";
@@ -14,9 +15,13 @@ in {
     ./nh.nix
   ];
 
-
   # Experimental features
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  hardware.firmware = with pkgs; [
+    firmwareLinuxNonfree
+    # realtek-firmware
+  ];
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -43,6 +48,8 @@ in {
 
   # Configure keymap in X11
   services = {
+    tlp.enable = true;
+    upower.enable = true;
     xserver = {
       enable = true;
       xkb = {
@@ -71,8 +78,7 @@ in {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
           user = "greeter";
         };
-      }
-      ;
+      };
     };
   };
 
@@ -132,10 +138,15 @@ in {
     # libsForQt5.qt5.qtquickcontrols2
     # libsForQt5.qt5.qtgraphicaleffects
 
+    # # Kernel debugger
+    # linuxPackages_latest.kernel
+    # kernelHeaders
+
     # Applications
     firefox
     blueman
-    obsidian
+    vscode
+    zoom-us
 
     # Cli
     git
@@ -145,11 +156,14 @@ in {
     eza
     brightnessctl
 
+    power-profiles-daemon
+    upower
+
     # Other
     base16-schemes
 
     # windowManager
-    sway
+    # sway
 
     # Clipboard manager
     wl-clipboard
@@ -159,6 +173,9 @@ in {
   environment.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     NIXOS_OZONE_WL = "1";
+    LANG = lib.mkForce "en_US.UTF-8";
+    LC_ALL = lib.mkForce "en_US.UTF-8";
+    XCOMPOSEFILE = "/usr/share/X11/locale/en_US/UTF-8/Compose";
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?

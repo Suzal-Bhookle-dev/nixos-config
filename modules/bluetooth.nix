@@ -3,7 +3,6 @@
 {
   hardware.enableAllFirmware = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
 
   hardware.bluetooth = {
     enable = true;

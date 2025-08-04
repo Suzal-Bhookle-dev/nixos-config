@@ -14,8 +14,9 @@
     # ../home-manager/eww.nix
     ../home-manager/hyprland.nix
     ../home-manager/rofi.nix
-    ../home-manager/dunst.nix
+    # ../home-manager/dunst.nix
     ../home-manager/sway.nix
+    # ../home-manager/hyprpanel.nix
   ];
 
   nix.settings = {

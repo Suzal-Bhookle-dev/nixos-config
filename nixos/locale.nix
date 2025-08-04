@@ -1,11 +1,13 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  # Select internationalisaton properties.
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";

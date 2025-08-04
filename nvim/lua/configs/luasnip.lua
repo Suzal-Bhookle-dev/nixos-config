@@ -10,7 +10,7 @@ luasnip.filetype_extend("typescriptreact", { "html" })
 
 -- vscode format
 require("luasnip/loaders/from_vscode").lazy_load()
-require("luasnip/loaders/from_vscode").load({ include = { "html" } })
+-- require("luasnip/loaders/from_vscode").load({ include = { "html" } })
 
 -- vscode format
 -- require("luasnip.loaders.from_vscode").lazy_load({ exclude = vim.g.vscode_snippets_exclude or {} })
