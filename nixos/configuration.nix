@@ -142,6 +142,8 @@ in {
     # linuxPackages_latest.kernel
     # kernelHeaders
 
+    # caelestia-shell.packages.${config.system.x86_64-linux}.default
+
     # Applications
     firefox
     blueman

@@ -4,8 +4,8 @@
   ...
 }: {
   imports = [
-    ../home-manager/i3.nix
-    ../home-manager/polybar.nix
+    # ../home-manager/i3.nix
+    # ../home-manager/polybar.nix
     ../home-manager/neovim.nix
     ../home-manager/tmux.nix
     ../home-manager/kitty.nix
@@ -15,8 +15,9 @@
     ../home-manager/hyprland.nix
     ../home-manager/rofi.nix
     # ../home-manager/dunst.nix
-    ../home-manager/sway.nix
+    # ../home-manager/sway.nix
     # ../home-manager/hyprpanel.nix
+    # ../home-manager/caelestia.nix
   ];
 
   nix.settings = {

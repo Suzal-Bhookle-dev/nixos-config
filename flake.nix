@@ -10,6 +10,11 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    # caelestia-shell = {
+    #   url = "github:caelestia-dots/shell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = {
@@ -17,6 +22,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    # caelestia-shell,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -42,9 +48,9 @@
         ./nixos/home.nix
       ];
 
-        extraSpecialArgs = {
-    inherit inputs system;
-  };
+      extraSpecialArgs = {
+        inherit inputs system;
+      };
     };
   };
 }
